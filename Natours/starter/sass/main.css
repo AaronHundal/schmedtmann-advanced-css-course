@@ -43,19 +43,17 @@ body {
   /* clip-path: polygon(0 0, 100% 50%, 0 100%); /*- makes a triangle */
   /* clip-path: polygon(0 33%, 33% 0, 66% 0, 100% 33%, 100% 66%, 66% 100%, 33% 100%, 0 66%); /* makes an irregular hexagon */
   position: relative;
+  /* SCSS - these ampersand extensions are helpful because now we can just look in the header block and see what all the subelement styles are */
 }
-
-/* logo-box will be positioned absolutely, pushing 40px off the top and left of the nearest parent element with 'position: relative' */
 .header__logo-box {
+  /* logo-box will be positioned absolutely, pushing 40px off the top and left of the nearest parent element with 'position: relative' */
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
-
 .header__logo {
   height: 3.5rem;
 }
-
 .header__text-box {
   position: absolute;
   top: 50%;
@@ -70,11 +68,9 @@ body {
   color: #fff;
   text-transform: uppercase;
   /*  */
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden; /* animations can sometimes cause little shifts when they end. No one really knows why. This fixes it. */
+  backface-visibility: hidden; /* animations can sometimes cause little shifts when they end. No one really knows why. This fixes it. */
   margin-bottom: 6rem;
 }
-
 .heading-primary--main {
   display: block; /* block level elements take the full width of their parent and therefore forces a linebreak */
   font-size: 6rem;
@@ -90,7 +86,6 @@ body {
   animation-iteration-count: 3;   runs the animation 3 times
   */
 }
-
 .heading-primary--sub {
   display: block; /* block level elements take the full width of their parent and add a line break at the end of themselves */
   font-size: 2rem;
@@ -144,10 +139,12 @@ Browsers are optimised for opacity & transform properties to be animated */
     transform: translate(0);
   }
 }
-/* link here is a pseudo class. Pseudo classes are special states of a selector. We use pseudo classes to style elements under a special condition */
-/* Other examples might include :hover, :first-child, :checked */
-.btn:link,
-.btn:visited {
+.btn {
+  /* link here is a pseudo class. Pseudo classes are special states of a selector. We use pseudo classes to style elements under a special condition */
+  /* Other examples might include :hover, :first-child, :checked */
+  /* after here is a pseudo element. The trick here is adding a button which looks like the actual button and hide it behind it */
+}
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem; /* 15px top/bottom 40px left/right*/
@@ -158,23 +155,27 @@ Browsers are optimised for opacity & transform properties to be animated */
   position: relative;
   font-size: 1.6rem;
 }
-
 .btn--white {
   background-color: #fff;
   color: #777;
 }
-
+.btn--white::after {
+  background-color: #fff;
+  color: #777;
+}
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); /* 0 shadow offset in x direction. 10px offset in y. 20px blur (makes shadow larger) */
+  /* when we want hover the button, we apply these styles to the 'after' pseudoelement */
 }
-
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6); /* scales 1.4 times original size on x and 1.6 on y */
+  opacity: 0;
+}
 .btn:active {
   transform: translateY(-1px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); /* in relation to hover pseudoclass, this makes the button look like it's being pushed down as it's "closer" to the page */
 }
-
-/* after here is a pseudo element. The trick here is adding a button which looks like the actual button and hide it behind it */
 .btn::after {
   content: "";
   display: inline-block;
@@ -188,18 +189,6 @@ Browsers are optimised for opacity & transform properties to be animated */
   z-index: -1;
   transition: all 0.4s;
 }
-
-.btn--white::after {
-  background-color: #fff;
-  color: #777;
-}
-
-/* when we want hover the button, we apply these styles to the 'after' pseudoelement */
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6); /* scales 1.4 times original size on x and 1.6 on y */
-  opacity: 0;
-}
-
 .btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards; /* applies the animations of the 0% keyframes before the animation starts */
