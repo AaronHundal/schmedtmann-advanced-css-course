@@ -1,0 +1,16 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit; /* now box-sizing will be an inherited property */
+}
+
+html {
+    // this defines what 1rem is
+    font-size: 62.5%; /* sets default font size on html tag to 62.5% of browser default font-size (which is usually 16px, so this will be 10px), this impacts all rem values */
+}
+
+body {
+    box-sizing: border-box; /* with this borders are not appended to the total width or height that we specify for a box. */
+}
