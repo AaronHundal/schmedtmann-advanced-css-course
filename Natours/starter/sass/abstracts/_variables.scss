@@ -1,17 +1,14 @@
+// COLOURS
 $color-primary: #7ed56f;
 $color-primary-light: #55c57a;
 $color-primary-dark: #28b485;
 
-/*  asterix is the universal selector,
-*   all elements on the page will be given these values.
-*   Here it is used to perform a browser basic reset to ensure
-*   all browsers render the same CSS.
-*
-*   By default, some browsers will apply their own margin/padding to certain elements.
-*   I.e. H1 tags might be given some margin/padding.
-*   This resets so all is determined by us.
-*/
-
 $color-grey-dark: #777;
 $color-white: #fff;
 $color-black: #000;
+
+
+// GRID
+$grid-width: 114rem;
+$gutter-vertical: 8rem;
+$gutter-horizontal: 6rem;

@@ -1,0 +1,10 @@
+@mixin clearfix {
+    // When all child elements of an element are floated, the height of the parent becomes 0.
+    // clearfix adds a pseudo element to stop this.
+
+    &::after {
+        content: ""; // empty content in pseudo element
+        display: table;
+        clear: both; // clears both float left and right
+    }
+}
