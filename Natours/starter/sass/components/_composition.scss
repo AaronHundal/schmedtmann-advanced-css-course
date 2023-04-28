@@ -1,0 +1,41 @@
+.composition { // A really cool 3 photo overlapping composition thingy
+    position: relative;
+
+    &__photo { // The photos in the composition are positioned absolutely with z-index=10
+        width: 55%;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+        border-radius: 2px;
+        position: absolute;
+        z-index: 10;
+        transition: all .2s;
+        outline-offset: 2rem;
+
+        &--p1 { // The first photo is pushed up a bit and starts on the left
+            left: 0;
+            top: -2rem;
+        }
+
+        &--p2 { // The second photo is pushed down a bit and starts on the right
+            right: 0;
+            top: 2rem;
+        }
+
+        &--p3 { // The third photo is pushed down a lot and starts 20% from the left
+            left: 20%;
+            top: 10rem;
+        }
+
+        &:hover { // On hover the photos scale up and have their z-index increased to create a "bring to front" effect
+            outline: 1.5rem solid $color-primary;
+            transform: scale(1.05) translateY(-.5rem);
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+            z-index: 20;
+        }
+    }
+
+    // When the composition is hovered (i.e. a photo is hovered), scale down the non hovered photos
+    &:hover &__photo:not(:hover) {
+        transform: scale(.95);
+    }
+
+}

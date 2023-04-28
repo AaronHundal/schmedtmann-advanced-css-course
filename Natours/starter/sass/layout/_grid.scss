@@ -1,6 +1,5 @@
 .row {
     max-width: $grid-width;
-    background-color: #eee;
     margin: 0 auto; // trick to centre block elements
 
     &:not(:last-child) {
@@ -11,7 +10,6 @@
 
     // select all attributes with class starting with col-
     [class^="col-"] {
-        background-color: orangered;
         float: left; /* float columns to the left side */
 
         &:not(:last-child) {

@@ -2,7 +2,7 @@ body {
     /* font settings will be inherited by all child elements on the page */
     font-family: "Lato", sans-serif;
     font-weight: 400; /* as per the import in index.html we only have Lato font weights of: 100,300,400,700,900 */
-    font-size: 1.6rem;
+    font-size: $default-font-size;
     line-height: 1.7; /* 1.7 times the default line height */
     color: $color-grey-dark;
     padding: 3rem; /* padding is not inherited, this just applies padding to the whole page body */
@@ -47,5 +47,37 @@ body {
         animation-name: moveInRight;
         animation-duration: 1s;
         animation-timing-function: ease-out;
+    }
+}
+
+.heading-secondary {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: .2rem;
+    transition: all .2s;
+
+    &:hover {
+        transform: skewY(2deg) skewX(15deg) scale(1.1);
+        text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+    }
+}
+
+.heading-tertiary {
+    font-size: $default-font-size;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.paragraph {
+    font-size: $default-font-size;
+
+    &:not(:last-child) {
+        margin-bottom: 3rem;
     }
 }
