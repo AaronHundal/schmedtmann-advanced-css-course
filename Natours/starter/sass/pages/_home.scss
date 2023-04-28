@@ -3,3 +3,21 @@
     padding: 25rem 0;
     margin-top: -20vh
 }
+
+.section-features {
+    padding: 20rem 0;
+    background-image: 
+        linear-gradient(                /* Applies a colour gradient at the top level of the background image. */
+            to right bottom,            /* Specifies the direction the gradient should be in */
+            rgba($color-primary-light, 0.8), /* Equivalent to #7ed56f with 0.8 opacity (so that we can see the image on the layer below) */
+            rgba($color-primary-dark, 0.8)   /* Equivalent to #28b485 with 0.8 opacity (so that we can see the image on the layer below) */
+        ),
+    url(../img/nat-4.jpg); 
+    background-size: cover;
+    transform: skewY(-7deg);
+    margin-top: -10rem;
+
+    & > * {
+        transform: skewY(7deg);
+    }
+}
