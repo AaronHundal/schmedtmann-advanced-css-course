@@ -14,7 +14,8 @@
 
     /* with clip-path you can use polygon to define the coordinates of points to include in a shape
      and clip-path will cut that shape out of the div it's applied to. */
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     /* clip-path: polygon(0 0, 100% 50%, 0 100%); /*- makes a triangle */
     /* clip-path: polygon(0 33%, 33% 0, 66% 0, 100% 33%, 100% 66%, 66% 100%, 33% 100%, 0 66%); /* makes an irregular hexagon */
 
