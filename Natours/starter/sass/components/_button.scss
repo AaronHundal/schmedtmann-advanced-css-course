@@ -2,6 +2,7 @@
 
     /* link here is a pseudo class. Pseudo classes are special states of a selector. We use pseudo classes to style elements under a special condition */
     /* Other examples might include :hover, :first-child, :checked */
+    &,
     &:link,
     &:visited {
         text-transform: uppercase;
@@ -13,6 +14,9 @@
         transition: all .2s; /* .2s transition will be applied on all pseudoclass states (hover, active) */
         position: relative;
         font-size: $default-font-size;
+
+        border: none;
+        cursor: pointer;
     }
 
     &--white {
@@ -45,7 +49,9 @@
         }
     }
     
-    &:active {
+    &:active, 
+    &:focus {
+        outline: none;
         transform: translateY(-1px);
         box-shadow: 0 .5rem 1rem rgba($color-black, .2); /* in relation to hover pseudoclass, this makes the button look like it's being pushed down as it's "closer" to the page */
     }
