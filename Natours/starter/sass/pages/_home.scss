@@ -1,0 +1,62 @@
+.section-about {
+    background-color: $color-grey-light-1;
+    padding: 25rem 0;
+    margin-top: -20vh;
+}
+
+.section-features {
+    padding: 20rem 0;
+    background-image: 
+        linear-gradient(                /* Applies a colour gradient at the top level of the background image. */
+            to right bottom,            /* Specifies the direction the gradient should be in */
+            rgba($color-primary-light, 0.8), /* Equivalent to #7ed56f with 0.8 opacity (so that we can see the image on the layer below) */
+            rgba($color-primary-dark, 0.8)   /* Equivalent to #28b485 with 0.8 opacity (so that we can see the image on the layer below) */
+        ),
+    url(../img/nat-4.jpg); 
+    background-size: cover;
+    transform: skewY(-7deg);
+    margin-top: -10rem;
+
+    & > * {
+        transform: skewY(7deg);
+    }
+}
+
+.section-tours {
+    background-color: $color-grey-light-1;
+    padding: 25rem 0 15rem 0;
+    margin-top: -10rem;
+}
+
+.section-stories {
+    position: relative;
+    padding: 15rem 0;
+}
+
+.section-book {
+    padding: 15rem 0;
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8));
+}
+
+.book {
+    // Percentage defines where the colour should start. i.e. it should be fully white at 50% and also fully transparent at 50%,
+    // therefore there is a clear cut where the colours change rather than a gradual change.
+    // Degrees defines the direction of the gradient.
+    background-image: linear-gradient(
+            105deg, 
+            rgba($color-white, .9) 0%,   
+            rgba($color-white, .9) 50%,     
+            transparent 50%, 
+        ), 
+        url('../img/nat-10.jpg');
+    background-size: 100%; // same as cover;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+
+    height: 50rem;
+
+    &__form {
+        width: 50%;
+        padding: 6rem;
+    }
+}

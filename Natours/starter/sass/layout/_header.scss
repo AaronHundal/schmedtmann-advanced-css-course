@@ -1,0 +1,46 @@
+.header {
+    height: 95vh; /* 95% of the viewport height */
+    background-image: 
+        linear-gradient(                /* Applies a colour gradient at the top level of the background image. */
+            to right bottom,            /* Specifies the direction the gradient should be in */
+            rgba($color-primary-light, 0.8), /* Equivalent to #7ed56f with 0.8 opacity (so that we can see the image on the layer below) */
+            rgba($color-primary-dark, 0.8)   /* Equivalent to #28b485 with 0.8 opacity (so that we can see the image on the layer below) */
+        ),
+        url(../img/hero.jpg);           /* One level beneath the colour gradient is this image. */
+    background-size: cover;
+    background-position: top; /* ensures that the top of the image is not cropped when viewport dimensions change 
+    (try changing to bottom or center to see) */
+
+
+    /* with clip-path you can use polygon to define the coordinates of points to include in a shape
+     and clip-path will cut that shape out of the div it's applied to. */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /* clip-path: polygon(0 0, 100% 50%, 0 100%); /*- makes a triangle */
+    /* clip-path: polygon(0 33%, 33% 0, 66% 0, 100% 33%, 100% 66%, 66% 100%, 33% 100%, 0 66%); /* makes an irregular hexagon */
+
+    position: relative;
+
+    // SCSS - these ampersand extensions are helpful because now we can just look in the header block and see what all the subelement styles are    
+    &__logo-box {
+        /* logo-box will be positioned absolutely, pushing 40px off the top and left of the nearest parent element with 'position: relative' */
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;
+    }
+    
+    
+    &__text-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;                          /* Start coords of div are positioned absolutely (50% push top&left) relative to their parents */
+        transform: translate(-50%, -50%);   /* Now to push the div back a bit so that its center is in the center of its parents. 
+                                               Transform and translate are relative to the div itself, 
+                                               meaning the div gets pushed back 50% on itself on each axis */
+        text-align: center;
+    }
+}

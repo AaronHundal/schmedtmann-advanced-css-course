@@ -1,0 +1,17 @@
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1; // Ensures that the video is always behind the content
+    opacity: .15;
+    overflow: hidden;
+
+    &__content {
+        height: 100%;
+        width: 100%;
+        object-fit: cover; // Ensures that the video always covers the entire area, even if it has to stretch or cut off some of the video
+    }
+
+}
