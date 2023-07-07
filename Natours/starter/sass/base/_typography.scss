@@ -5,7 +5,6 @@ body {
     font-size: $default-font-size;
     line-height: 1.7; /* 1.7 times the default line height */
     color: $color-grey-dark;
-    padding: 3rem; /* padding is not inherited, this just applies padding to the whole page body */
     box-sizing: border-box; /* with this borders are not appended to the total width or height that we specify for a box. */
 }
 
@@ -31,6 +30,11 @@ body {
         /* ease-in = slow start and speeds up */
         /* ease-out = fast start and slows down */
         animation-timing-function: ease-out; /* https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function */
+
+        @include respond(phone) {
+            letter-spacing: 1rem;
+            font-family: 5rem;
+        }
     
         /*
         animation-delay: 3s;            delays the start of the animation by 3 seconds
@@ -47,6 +51,10 @@ body {
         animation-name: moveInRight;
         animation-duration: 1s;
         animation-timing-function: ease-out;
+
+        @include respond(phone) {
+            letter-spacing: .5rem;
+        }
     }
 }
 
@@ -61,6 +69,14 @@ body {
     color: transparent;
     letter-spacing: .2rem;
     transition: all .2s;
+
+    @include respond(tab-port) {
+        font-size: 3rem;
+    }
+
+    @include respond(phone) {
+        font-size: 2.5rem;
+    }
 
     &:hover {
         transform: skewY(2deg) skewX(15deg) scale(1.1);

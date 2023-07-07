@@ -19,8 +19,27 @@
 html {
     // this defines what 1rem is
     font-size: 62.5%; /* sets default font size on html tag to 62.5% of browser default font-size (which is usually 16px, so this will be 10px), this impacts all rem values */
+
+
+    // tab-land listed first so that screens fitting tab-port don't apply these styles (cascade)
+    @include respond(tab-land) {
+        font-size: 56.25%; // 1rem = 9px, 9/16=56.25
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%; // 1rem = 8px, 8/16=50
+    }
+
+    @include respond(big-desktop) {
+        font-size: 75%; // 1rem = 12px, 12/17=75
+    }
 }
 
 body {
     box-sizing: border-box; /* with this borders are not appended to the total width or height that we specify for a box. */
+    padding: 3rem; /* padding is not inherited, this just applies padding to the whole page body */
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
 }

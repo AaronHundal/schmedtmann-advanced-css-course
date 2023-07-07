@@ -21,6 +21,11 @@
 
     position: relative;
 
+    @include respond(phone) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
+
     // SCSS - these ampersand extensions are helpful because now we can just look in the header block and see what all the subelement styles are    
     &__logo-box {
         /* logo-box will be positioned absolutely, pushing 40px off the top and left of the nearest parent element with 'position: relative' */
